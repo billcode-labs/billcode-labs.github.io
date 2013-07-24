@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title>Billcode Labs</title>
+  <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+  <!--
+  <link rel="stylesheet" href="billcodelabs.css" type="text/css">
+  <link rel="stylesheet" href="normalize.css" type="text/css"> -->
+	<style type="text/css">
+    body {
+      padding-top: 60px;
+      padding-bottom: 40px;
+    }
+  </style>
+  <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="index.html">Billcode Labs</a></li>
+              <li class="active"><a href="git.html">git</a></li>
+              <!--
+              <li><a href="maven.html">maven</a></li>	-->
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-unit">
+        <h1>Useful Git commands</h1>
+    </div>
+    <br>
+    
+    <!--
+    <a name="create"></a>
+    <div class="scrollblock block-create">
+        <h2>create a new repository</h2>
+        <p>
+            create a new directory, open it and perform a <br />
+            <code>git init</code><br />
+            to create a new git repository.
+        </p>
+    </div> 
+    -->
+    
+    <div class="scrollblock block-checkout">
+    </div>    
+    
+    <div>
+        <h2>HEAD</h2>
+        <table class="table table-condensed">
+            <tbody>
+                         
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git checkout {sha1}</code></td>
+                    <td>navega para a situação do sha1 (commit) específicado</td>
+                </tr>
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git checkout HEAD</code></td>
+                    <td>navega para a situação inicial do HEAD</td>
+                </tr>                
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git revert {sha1}</code></td>
+                    <td>faz um novo commit desfazendo um commit específico</td>
+                </tr>                     
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git revert HEAD</code></td>
+                    <td>faz um novo commit desfazendo o último commit</td>
+                </tr>
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git reset {sha1}</code></td>
+                    <td>direciona o HEAD para o sha1, descartando os commits anteriores</td>
+                </tr>
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git reset --merge {sha1}</code></td>
+                    <td>direciona o HEAD para o sha1, mantendo as alterações do working directory</td>
+                </tr>                
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git reset HEAD~1 --soft</code></td>
+                    <td>desfaz  o último commit, voltando as alterações para o índice</td>
+                </tr> 
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git reset HEAD~1</code></td>
+                    <td>desfaz  o último commit, voltando as alterações para o working directory</td>
+                </tr> 
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git reset HEAD~1 --hard</code></td>
+                    <td>desfaz  o último commit, descartando todas as alterações</td>
+                </tr> 
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git reset HEAD --hard</code></td>
+                    <td>desfaz todas as alterações do índice e do working directory</td>
+                </tr> 
+                
+                
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git bisect start</code></td>
+                    <td>inicia a busca de um commit com problema</td>
+                </tr> 
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git bisect bad HEAD</code></td>
+                    <td>marca o HEAD como defeituoso</td>
+                </tr> 
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git bisect good {sha1}</code></td>
+                    <td>marca um commit  (último) bom</td>
+                </tr> 
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git bisect {good|bad}</code></td>
+                    <td>marca um commit intermediário</td>
+                </tr> 
+                
+                
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git remote [add|rm] {alias} {url}</code></td>
+                    <td>mapeia|remove um repositório remoto</td>
+                </tr>                 
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git remote [-v]</code></td>
+                    <td>lista os repositórios remotos</td>
+                </tr>                 
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git push</code></td>
+                    <td>envia os novos commits para um repositório</td>
+                </tr>                  
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git rebase {branch}</code></td>
+                    <td>adiciona no branch atual o conteúdo do branch especificado</td>
+                </tr>                  
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git rebase -i HEAD~3</code></td>
+                    <td>junta os três últimos commits</td>
+                </tr>
+                
+                                  
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git clone {url}</code></td>
+                    <td>baixa o conteúdo de um repositório</td>
+                </tr>                  
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git pull {alias} [master]</code></td>
+                    <td>baixa as atualizações  de um repositório e faz  merge com a master</td>
+                </tr>                  
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git pull [-s strategy] [-X options] [alias] [branch]</code></td>
+                    <td>baixa as atualizações utilizando estratégia e opções diferentes</td>
+                </tr>                              
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git fetch</code></td>
+                    <td>baixa as atualizações de um repositório ou mais repositório (.git/FETCH_HEAD)</td>
+                </tr>                  
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git merge {branch}</code></td>
+                    <td>faz merge do branch atual com  o branch especificado</td>
+                </tr>                  
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git merge {branch} --squash</code></td>
+                    <td>faz merge colocando todas as alterações no índice para um novo commit</td>
+                </tr>                  
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git branch</code></td>
+                    <td>lista de branches locais</td>
+                </tr>                  
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git branch {novo_branch}</code></td>
+                    <td>cria um novo branch</td>
+                </tr>                  
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git branch -d {branch}</code></td>
+                    <td>excluí um branch</td>
+                </tr>                  
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git checkout -b {novo_branch}</code></td>
+                    <td>cria e muda para um novo branch</td>
+                </tr>                  
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git checkout {branch}</code></td>
+                    <td>muda para um branch existente</td>
+                </tr>                  
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git tag v1.0</code></td>
+                    <td>cria uma nova tag</td>
+                </tr>                  
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git push origin v1.0</code></td>
+                    <td>envia tag para o repositório remoto</td>
+                </tr>
+
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git format-patch master --stdout > bugfix.patch</code></td>
+                    <td>faz um patch do branch atual contra o master</td>
+                </tr>
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git apply --stat bugfix.patch</code></td>
+                    <td>lista as alterações do patch (sem efetivar modificações)</td>
+                </tr>                
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git am --signoff --ignore-whitespace &lsaquo; bugfix.patch</code></td>
+                    <td>aplica o patch no branch corrente</td>
+                </tr>                  
+
+            </tbody>
+        </table>                
+                
+        <br />
+        <h2>INDEX</h2>
+        <table class="table table-condensed">
+            <tbody>               
+                             
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git commit -m 'comentário'</code></td>
+                    <td>faz um commit com as alterações adicionadas ao índice</td>
+                </tr>                  
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git commit -am 'comentário'</code></td>
+                    <td>faz um commit  adicionando os arquivos  já controlados</td>
+                </tr>                  
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git commit --amend ['comentário']</code></td>
+                    <td>adiciona alterações no último commit</td>
+                </tr>                   
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git reset HEAD</code></td>
+                    <td>desfaz  as alterações (add) e volta os arquivos para o working directory</td>
+                </tr>                   
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git reset {arquivo}</code></td>
+                    <td>desfaz  as alterações (add) e volta o arquivo para o working directory</td>
+                </tr>                   
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git reset {branch} {arquivo}</code></td>
+                    <td>desfaz  as alterações (add) e volta o arquivo conforme o branch</td>
+                </tr>                   
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git stash {save|pop|apply|drop|list} [stash]</code></td>
+                    <td>salva/recupera alterações do índice em uma área temporária</td>
+                </tr>                   
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git stash -U [stash]</code></td>
+                    <td>salva alterações levando  arquivos untrackeds</td>
+                </tr> 
+             </tbody>
+        </table>               
+                          
+        <br />
+        <h2>WORKING DIRECTORY</h2>
+        <table class="table table-condensed">
+            <tbody>                   
+                 
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git add .</code></td>
+                    <td>adiciona arquivos alterados/novos ao índice (para o próximo commit)</td>
+                </tr>                   
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git add {arquivo ou pasta}</code></td>
+                    <td>adiciona arquivo/pasta específica ao índice (para o próximo commit)</td>
+                </tr>
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git rm {arquivo ou pasta}</code></td>
+                    <td>adiciona arquivo/pasta excluída ao índice (para o próximo commit)</td>
+                </tr>
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git add -A .</code></td>
+                    <td>adiciona todas as alterações e exclusões ao índice</td>
+                </tr>
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git clean -d -f</code></td>
+                    <td>apaga as alterações do working directory</td>
+                </tr>
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git checkout {arquivo}</code></td>
+                    <td>volta o conteúdo do  arquivo conforme o HEAD</td>
+                </tr>
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git log [--since="1 weeks ago" ]</code></td>
+                    <td>exibe os commits</td>
+                </tr>
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git log [-p] {arquivo}</code></td>
+                    <td>exibe as alterações de um determinado arquivo</td>
+                </tr>
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git log {branch..master}</code></td>
+                    <td>exibe os commits que a branch não tem em relação a master</td>
+                </tr>
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git log -S 'texto'</code></td>
+                    <td>exibe os commits que que afetaram  o conteúdo contendo o texto</td>
+                </tr>
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git log {diretório}</code></td>
+                    <td>exibe os commits que que afetaram  o diretório</td>
+                </tr>
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git status</code></td>
+                    <td>exibe as alterações do working directory e do índice</td>
+                </tr>
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git reflog</code></td>
+                    <td>similar ao git log, porém exibe os commits apagados (reset)</td>
+                </tr>
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>gitk --all  [arquivo]</code></td>
+                    <td>similar ao git log, porém exibe de forma gráfica</td>
+                </tr>
+                
+                
+            </tbody>
+        </table>
+        
+    </div>
+
+</body>
+
+</html>
