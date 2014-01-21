@@ -148,9 +148,14 @@
                 
                 <tr>
                     <td><i class="icon-eye-open"></i></td>
-                    <td><code>git remote [add|rm] {alias} {url}</code></td>
+                    <td><code>git remote [add|rm] {repo_alias} {url}</code></td>
                     <td>manage the set of repositories whose branches you track</td>
                 </tr>
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git remote add {repo_alias} -f {url}</code></td>
+                    <td>Add and fetch the remote repository</td>
+                </tr>                
                 <tr>
                     <td><i class="icon-eye-open"></i></td>
                     <td><code>git remote [-v]</code></td>
@@ -211,23 +216,34 @@
                 <tr>
                     <td><i class="icon-eye-open"></i></td>
                     <td><code>git branch {new_branch}</code></td>
-                    <td>create a new branch</td>
-                </tr>                  
-                <tr>
-                    <td><i class="icon-eye-open"></i></td>
-                    <td><code>git branch -d {branch}</code></td>
-                    <td>delete branch</td>
-                </tr>                  
+                    <td>create a new local branch</td>
+                </tr>              
                 <tr>
                     <td><i class="icon-eye-open"></i></td>
                     <td><code>git checkout -b {new_branch}</code></td>
-                    <td>create and change to the new branch</td>
+                    <td>create and change to the new local branch</td>
                 </tr>                  
                 <tr>
                     <td><i class="icon-eye-open"></i></td>
                     <td><code>git checkout {branch}</code></td>
                     <td>change to another existing branch</td>
-                </tr>                  
+                </tr>  
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git push -u {repo_alias} {branch}</code></td>
+                    <td>push local branch as a remote branch</td>
+                </tr>                                    
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git branch -d {branch}</code></td>
+                    <td>delete a local branch</td>
+                </tr>
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git push {repo_alias} --delete {branch}</code></td>
+                    <td>delete a remote branch</td>
+                </tr>
+
                 <tr>
                     <td><i class="icon-eye-open"></i></td>
                     <td><code>git tag v1.0</code></td>
@@ -254,7 +270,11 @@
                     <td><code>git am --signoff --ignore-whitespace &lsaquo; bugfix.patch</code></td>
                     <td>apply patch on the current branch</td>
                 </tr>                  
-
+                <tr>
+                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git merge second_repo/master -s recursive -X ours</code></td>
+                    <td>Merge the current repo (origin) - keeping all files, with the second_repo</td>
+                </tr>  
             </tbody>
         </table>                
                 
