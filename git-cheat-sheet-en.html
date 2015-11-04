@@ -14,6 +14,11 @@
       padding-top: 60px;
       padding-bottom: 40px;
     }
+    td code {
+      background: rgba(0, 0, 0, 0.7);
+      font-size: 16px;
+      color: #f6f6f6;
+    }
   </style>
   <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 </head>
@@ -69,209 +74,193 @@
             <tbody>
                          
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git checkout {sha1}</code></td>
                     <td>checkout (navigate) to the code in a specific sha1 (commit)</td>
                 </tr>
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git checkout HEAD</code></td>
                     <td>checkout (navigate) to the code in the HEAD</td>
-                </tr>                
+                </tr>
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git checkout -</code></td>
+                    <td>checkout (navigate) to previous branch</td>
+                </tr>
+                <tr>
                     <td><code>git <abbr title="revert is usually used when the commit already is on remote repo">revert</abbr> {sha1}</code></td>
                     <td>create a new commit undoing an specific commit (sha1)</td>
                 </tr>                     
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git revert HEAD</code></td>
                     <td>create a new commit undoing the last commit</td>
                 </tr>
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git reset {sha1}</code></td>
                     <td>reset current HEAD to the specified state {sha1}</td>
                 </tr>
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git reset --merge {sha1}</code></td>
                     <td>reset current HEAD to the specified state {sha1}, keeping current changes on the working directory</td>
                 </tr>                
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git reset HEAD~1 --soft</code></td>
                     <td>undo the last commit, keeping changes on the INDEX</td>
                 </tr> 
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git reset HEAD~1</code></td>
                     <td>undo the last commit, keeping changes on the working directory</td>
                 </tr> 
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git reset HEAD~1 --hard</code></td>
                     <td>undo the last commit, discarding all changes</td>
                 </tr> 
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git reset HEAD --hard</code></td>
                     <td>undo all changes over the INDEX and working directory</td>
                 </tr> 
-                
+                <tr>
+                    <td><code>git reflog</code></td>
+                    <td>List all {sha} and recover from reset --hard</td>
+                </tr>
+
                 
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git bisect start</code></td>
                     <td>start binary search the change that introduced a bug</td>
                 </tr> 
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git bisect bad HEAD</code></td>
                     <td>mark the HEAD as bad</td>
                 </tr> 
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git bisect good {sha1}</code></td>
                     <td>mark the last commit as good</td>
                 </tr> 
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git bisect {good|bad}</code></td>
                     <td>mark an intermediate commit as good or bad</td>
                 </tr> 
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git bisect reset</code></td>
                     <td>return to the commit that was checked out before git bisect start</td>
                 </tr>                 
                 
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git remote [add|rm] {repo_alias} {url}</code></td>
                     <td>manage the set of repositories whose branches you track</td>
                 </tr>
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git remote add {repo_alias} -f {url}</code></td>
                     <td>Add and fetch the remote repository</td>
                 </tr>                
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git remote [-v]</code></td>
                     <td>list remote repositories</td>
                 </tr>                 
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git push</code></td>
                     <td>Updates remote repo using local commits</td>
                 </tr>                  
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git rebase {branch}</code></td>
                     <td>add on the current branch commits from the specified branch</td>
                 </tr>
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git rebase -i HEAD~3</code></td>
                     <td>make a group of last three commits</td>
                 </tr>
                 
-                                  
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
-                    <td><code>git clone {url}</code></td>
+                    <td><code>git clone {repo url}</code></td>
                     <td>clone a repository into a new directory</td>
-                </tr>   
+                </tr>
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git clone -b {branch} {repo url}</code></td>
+                    <td>clone a repository branch</td>
+                </tr>
+                <tr>
                     <td><code>git fetch</code></td>
                     <td>download objects and refs from another repository (.git/FETCH_HEAD)</td>
                 </tr>               
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git pull {alias} [master]</code></td>
                     <td>fetch from another repository and merge with the master</td>
                 </tr>                  
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git pull [-s strategy] [-X options] [alias] [branch]</code></td>
                     <td>fetch from and merge with another respository using custom options</td>
                 </tr>
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git merge {branch}</code></td>
                     <td>merge current branch with another specified branch</td>
                 </tr>                  
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git merge {branch} --squash</code></td>
                     <td>merge current branch with another specified branch, keeping changes on INDEX</td>
                 </tr>                  
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git branch -a</code></td>
                     <td>list remote and local branches</td>
                 </tr>                  
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git branch {new_branch}</code></td>
                     <td>create a new local branch</td>
-                </tr>              
+                </tr>
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git branch -m {old-name} {new-name}</code></td>
+                    <td>Renaming a local branch</td>
+                </tr>
+                <tr>
+                    <td><code>git branch -rd origin/{branch}</code></td>
+                    <td>Delete a branch locally</td>
+                </tr>
+                <tr>
+                    <td><code>git push origin --delete bugfix</code></td>
+                    <td>Delete the same branch remotely</td>
+                </tr>
+
+                <tr>
                     <td><code>git checkout -b {new_branch}</code></td>
                     <td>create and change to the new local branch</td>
                 </tr>                  
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git checkout {branch}</code></td>
                     <td>change to another existing branch</td>
                 </tr>  
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git push -u {repo_alias} {branch}</code></td>
                     <td>push local branch as a remote branch</td>
                 </tr>                                    
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git branch -d {branch}</code></td>
                     <td>delete a local branch</td>
                 </tr>
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git push {repo_alias} --delete {branch}</code></td>
                     <td>delete a remote branch</td>
                 </tr>
 
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git tag v1.0</code></td>
                     <td>create a new tag</td>
                 </tr>                  
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git push origin v1.0</code></td>
                     <td>update remote repository with the new tag</td>
                 </tr>
 
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git format-patch master --stdout > bugfix.patch</code></td>
                     <td>create patches against the master (with commits not in the master)</td>
                 </tr>
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git apply --stat bugfix.patch</code></td>
                     <td>list changes over an patch (without apply it)</td>
                 </tr>                
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git am --signoff --ignore-whitespace &lsaquo; bugfix.patch</code></td>
                     <td>apply patch on the current branch</td>
                 </tr>                  
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git merge second_repo/master -s recursive -X ours</code></td>
                     <td>Merge the current repo (origin) - keeping all files, with the second_repo</td>
                 </tr>  
@@ -284,60 +273,29 @@
             <tbody>               
                              
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git commit -m 'comment...'</code></td>
                     <td>create an commit with changes added on INDEX</td>
                 </tr>                  
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git commit -am 'comment...'</code></td>
                     <td>add (tracked files) and create an commit</td>
                 </tr>                  
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git commit --amend ['comment...']</code></td>
                     <td>add changes to the last commit</td>
                 </tr>                   
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git reset HEAD</code></td>
                     <td>undo add changes, keeping changes on the working directory</td>
                 </tr>                   
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git reset {file}</code></td>
                     <td>undo add changes, keeping changed file on the working directory</td>
                 </tr>                   
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git reset {branch} {file}</code></td>
                     <td>undo add changes, restoring file as it is on the specified branch</td>
                 </tr>
-                <tr>
-                    <td><i class="icon-eye-open"></i></td>
-                    <td><code>git stash save [stash]</code></td>
-                    <td>store changes (local modifications), and clean the working directory</td>
-                </tr>                  
-                <tr>
-                    <td><i class="icon-eye-open"></i></td>
-                    <td><code>git stash list</code></td>
-                    <td>list the stashes that you currently have</td>
-                </tr>           
-                <tr>
-                    <td><i class="icon-eye-open"></i></td>
-                    <td><code>git stash pop [stash]</code></td>
-                    <td>remove a single stashed state and apply it on the current working</td>
-                </tr> 
-                <tr>
-                    <td><i class="icon-eye-open"></i></td>
-                    <td><code>git stash apply [stash]</code></td>
-                    <td>like pop, but do not remove the state from the stash list</td>
-                </tr>                  
-                <tr>
-                    <td><i class="icon-eye-open"></i></td>
-                    <td><code>git stash -U [stash]</code></td>
-                    <td>store changes adding untracked files</td>
-                </tr> 
              </tbody>
         </table>               
                           
@@ -347,72 +305,100 @@
             <tbody>                   
                  
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git add .</code></td>
                     <td>add all changes (tracked files) to the INDEX (for new commit)</td>
                 </tr>
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git add {file or folder}</code></td>
                     <td>add specific change to INDEX</td>
                 </tr>
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git rm {file or folder}</code></td>
                     <td>remove files from the working directory (for new commit)</td>
                 </tr>
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git add -A .</code></td>
                     <td>add all changes and remove to the INDEX</td>
                 </tr> 
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git clean -d -f</code></td>
                     <td>discard changes (clean the working directory)</td>
                 </tr>
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git checkout {file}</code></td>
                     <td>restore file content (as it is on HEAD)</td>
                 </tr>
+
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git stash</code></td>
+                    <td>Save your unfinished work (local changes)</td>
+                </tr>
+                <tr>
+                    <td><code>git stash pop</code></td>
+                    <td>Bring your saved unfinished work back</td>
+                </tr>
+                <tr>
+                    <td><code>git stash list</code></td>
+                    <td>list the stashes that you currently have</td>
+                </tr>           
+                <tr>
+                    <td><code>git stash pop [stash]</code></td>
+                    <td>remove a single stashed state and apply it on the current working</td>
+                </tr> 
+                <tr>
+                    <td><code>git stash apply [stash]</code></td>
+                    <td>like pop, but do not remove the state from the stash list</td>
+                </tr>                  
+                <tr>
+                    <td><code>git stash -U [stash]</code></td>
+                    <td>store changes adding untracked files</td>
+                </tr> 
+
+
+                <tr>
                     <td><code>git log [--since="1 weeks ago" ]</code></td>
                     <td>show current commits</td>
                 </tr>
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git log [-p] {file}</code></td>
                     <td>show changes over specific file</td>
                 </tr>
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git log {branch..master}</code></td>
                     <td>show changes <abbr title="you should probably not work on the master - use local branch instead">over the master</abbr></td>
                 </tr>
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git log -S 'text'</code></td>
                     <td>show changes (over current commits) matching with the text</td>
                 </tr>   
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>git log {directory}</code></td>
                     <td>show changes over the specific directory</td>
-                </tr>       
+                </tr>
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git diff branch1..branch2</code></td>
+                    <td>show the difference between two branches</td>
+                </tr>
+
+                <tr>
+                    <td><code>git grep {something} </code></td>
+                    <td>List commits that matche with something</td>
+                </tr>
+                       
+                <tr>
                     <td><code>git status</code></td>
                     <td>show changes on the working directory and INDEX</td>
                 </tr>
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
+                    <td><code>git status -sb</code></td>
+                    <td>show changes too</td>
+                </tr>
+                
+                <tr>
                     <td><code>git reflog</code></td>
                     <td>like git log, but show up deleted commits (see git reset)</td>
                 </tr>
                 <tr>
-                    <td><i class="icon-eye-open"></i></td>
                     <td><code>gitk [--all] [file]</code></td>
                     <td>like git log, but is GUI (need apt-get)</td>
                 </tr>
@@ -421,12 +407,29 @@
         
     </div>
 
+    
+
+    <div>
+        <h2>Useful links</h2>
+        <p>
+            <a href="http://www.ndpsoftware.com/git-cheatsheet.html">http://www.ndpsoftware.com/git-cheatsheet.html</a><br>
+            <a href="http://nvie.com/posts/a-successful-git-branching-model/">http://nvie.com/posts/a-successful-git-branching-model/</a><br>
+            <a href="https://twitter.com/kinduff/status/556127056938151936/photo/1">git rebase</a><br>
+            <a href="http://ibrokegit.com/">http://ibrokegit.com/</a><br>
+            <a href="__">__</a><br>
+        </p>
+     
+    </div>    
+
+
     <div>
         <h2>Links and references</h2>
         <p>
             <a href="http://git-scm.com/book">http://git-scm.com/book</a><br>
             <a href="http://rogerdudler.github.com/git-guide ">http://rogerdudler.github.com/git-guide </a><br>
             <a href="http://sixrevisions.com/resources/git-tutorials-beginners/">http://sixrevisions.com/resources/git-tutorials-beginners/</a><br>
+            <a href="https://github.com/tiimgreen/github-cheat-sheet#readme">https://github.com/tiimgreen/github-cheat-sheet#readme</a><br>
+            
         </p>
      
     </div>    
